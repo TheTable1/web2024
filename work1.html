@@ -25,6 +25,18 @@
       background-color: #007bff; /* Subtle gray for header */
       color: white;
       padding: 20px 0;
+      position: relative;
+    }
+
+    /* Add Christmas tree decoration */
+    .container-fluid::before {
+      content: url('https://www.clipartkey.com/mpngs/m/190-1903322_christmas-tree-clipart-christmas-decorations-png.png');
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      opacity: 0.2;
     }
 
     /* Main container */
@@ -35,6 +47,7 @@
       padding: 30px;
       max-width: 800px;
       margin: 30px auto;
+      position: relative;
     }
 
     /* Buttons with smooth hover effects */
@@ -122,16 +135,31 @@
       }
     }
 
-    /* Decoration */
-    .container:before {
-      content: url('https://www.clipartkey.com/mpngs/m/190-1903322_christmas-tree-clipart-christmas-decorations-png.png');
+    /* Christmas decorations */
+    .container::after {
+      content: "";
       position: absolute;
-      top: -50px;
+      bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      opacity: 0.3;
+      width: 120px;
+      height: 20px;
+      background-color: #28a745;
+      border-radius: 25px;
     }
+
+    /* Christmas-themed decorations for buttons */
+    .btn-primary, .btn-success {
+      background-color: #ff4500;
+      border-color: #ff4500;
+      color: white;
+    }
+
+    .btn-primary:hover, .btn-success:hover {
+      background-color: #d83a00;
+      border-color: #d83a00;
+    }
+    
   </style>
 </head>
 <body>
