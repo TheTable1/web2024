@@ -10,27 +10,27 @@
   <style>
     /* Global styles for a polished, elegant theme */
     body, h1, h2, h3, .alert, .form-check-label {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Prompt', sans-serif;
       font-size: 1rem;
       line-height: 1.5;
     }
 
     /* Soft background color */
     body {
-      background-color: #f8f9fa;
+      background-color: #033957;
+      color: #022f4d;
     }
 
     /* Header Styling */
     .container-fluid {
-      background-color:#155724; /* Subtle gray for header */
+      background-color: #3282B8; /* Subtle blue for header */
       color: white;
       padding: 20px 0;
       position: relative;
     }
 
-    /* Add Christmas tree decoration */
+    /* Christmas tree decoration */
     .container-fluid::before {
-      content: url('https://www.clipartkey.com/mpngs/m/190-1903322_christmas-tree-clipart-christmas-decorations-png.png');
       position: absolute;
       top: -40px;
       left: 50%;
@@ -41,7 +41,7 @@
 
     /* Main container */
     .container {
-      background-color: #fff;
+      background-color: #528fb3;
       border-radius: 10px;
       box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
       padding: 30px;
@@ -52,20 +52,20 @@
 
     /* Buttons with smooth hover effects */
     .btn-primary {
-      background-color: #155724; /* Soft blue */
-      border-color: #155724;
+      background-color: #BBE1FA; /* Soft blue */
+      border-color: #BBE1FA;
       border-radius: 25px;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .btn-primary:hover {
-      background-color: #155724;
+      background-color: #BBE1FA;
       transform: scale(1.05);
     }
 
     .btn-success {
-      background-color: #28a745;
-      border-color: #28a745;
+      background-color: #3282B8;
+      border-color: #3282B8;
       border-radius: 25px;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
@@ -135,23 +135,11 @@
       }
     }
 
-    /* Christmas decorations */
-    .container::after {
-      content: "";
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 20px;
-      
-      border-radius: 25px;
-    }
 
     /* Christmas-themed decorations for buttons */
     .btn-primary, .btn-success {
-      background-color: #ff4500;
-      border-color: #ff4500;
+      background-color: #0b5e24;
+      border-color: #0b5e24;
       color: white;
     }
 
@@ -159,7 +147,7 @@
       background-color: #d83a00;
       border-color: #d83a00;
     }
-    
+
   </style>
 </head>
 <body>
@@ -260,7 +248,7 @@ function checkAnswers() {
     
     resultHtml += `<br><h1 style="color: #000000; font-size: 1rem "><b>คะแนนรวมของคุณคือ: ${score} จาก ${quizlist.length} ข้อ</b></h1>`;
 
-   
+
     $("#quizListBox").append(resultHtml);
     $("#btnCheckAnswer").hide(); 
   });
