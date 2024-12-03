@@ -7,32 +7,60 @@
     <script src="https://cdn.jsdelivr.net/npm/vuetify@3.7.4/dist/vuetify.min.js"></script>
     <title>Quiz</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Prompt", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+
         .page-container {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #1B262C;
+            background-color: #033957;
             color: #BBE1FA;
         }
 
         .quiz-content {
             flex-grow: 1;
-            padding: 2rem;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .question-container {
             border: 1px solid #BBE1FA;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background-color: #3282B8;
+            border-radius: 10px;
+            padding: 2rem 5rem;
+            margin-bottom: 1.5rem;
+            background-color: #528fb3;
+            color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .question-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .text-h4 {
             color: #BBE1FA;
+            margin-bottom: 1rem;
         }
 
         .sticky-footer {
             background-color: #3282B8;
-            padding: 1rem;
-            text-align: right;
+            padding: 1.5rem;
+            text-align: center;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
             color: #BBE1FA;
         }
@@ -40,6 +68,34 @@
         .v-btn {
             background-color: #BBE1FA !important;
             color: #1B262C !important;
+            border-radius: 20px;
+            padding: 12px 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .v-btn:hover {
+            background-color: #1B262C !important;
+            color: #BBE1FA !important;
+            transform: translateY(-2px);
+        }
+
+        .v-radio-group {
+            margin-top: 1rem;
+        }
+
+        .v-radio {
+            margin-bottom: 1rem;
+        }
+
+        .score-container {
+            margin-top: 2rem;
+        }
+
+        .score-container h1 {
+            font-size: 2rem;
+            color: #BBE1FA;
         }
     </style>
 </head>
@@ -47,24 +103,30 @@
     <div id="app">
         <v-app>
             <div class="page-container">
-                <div v-if="page === 1" class="quiz-content text-center py-8">
-                    <h1 class="text-h4 mb-4">Quiz</h1>
-                    <v-btn color="primary" @click="page = 2">Start Quiz</v-btn>
-                </div>
-
-                <div v-if="page === 2" class="quiz-content py-8">
-                    <div class="question-container" v-for="(q, i) in qlist" :key="i">
-                        <div class="text-h6 mb-2">Question {{ i + 1 }}</div>
-                        <div v-html="q.title" class="mb-4"></div>
-                        <v-radio-group v-model="answers[i]" class="radio-group">
-                            <v-radio v-for="(otxt, ov) in q.options" :key="ov" :label="`${ov + 1}. ${otxt}`" :value="ov + 1"></v-radio>
-                        </v-radio-group>
+                <div v-if="page === 1" class="quiz-content">
+                    <div>
+                        <h1 class="text-h4">Welcome to the Quiz</h1>
+                        <v-btn color="primary" @click="page = 2">Start Quiz</v-btn>
                     </div>
                 </div>
 
-                <div v-if="page === 3" class="quiz-content text-center py-8">
-                    <h1 class="text-h4 mb-4">Your Score: {{ score }}</h1>
-                    <v-btn color="primary" @click="resetQuiz">Try Again</v-btn>
+                <div v-if="page === 2" class="quiz-content">
+                    <div class="w-full max-w-xl">
+                        <div class="question-container" v-for="(q, i) in qlist" :key="i">
+                            <div class="text-h6 mb-3">Question {{ i + 1 }}</div>
+                            <div v-html="q.title" class="mb-4"></div>
+                            <v-radio-group v-model="answers[i]" class="radio-group">
+                                <v-radio v-for="(otxt, ov) in q.options" :key="ov" :label="`${ov + 1}. ${otxt}`" :value="ov + 1"></v-radio>
+                            </v-radio-group>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="page === 3" class="quiz-content">
+                    <div class="score-container">
+                        <h1>Your Score: {{ score }}</h1>
+                        <v-btn color="primary" @click="resetQuiz">Try Again</v-btn>
+                    </div>
                 </div>
 
                 <div class="sticky-footer">
