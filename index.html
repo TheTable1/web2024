@@ -1,113 +1,113 @@
 <!DOCTYPE html>
 <html lang="th">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วิชา SC310006 Mobile and Web Application Development</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      /* พื้นหลัง */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Prompt', sans-serif;
-  background: linear-gradient(to bottom, #ffefba, #ffffff) no-repeat fixed;
-  background-image: url('https://example.com/christmas-background.jpg');
-  background-size: cover;
-  color: #333;
-}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile and Web Application Development</title>
+  <style>
+    /* ตกแต่งตัวพื้นฐาน */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0F4C75, #BBE1FA);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-/* คอนเทนเนอร์ */
-.container {
-  max-width: 800px;
-  margin: 50px auto;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px 30px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
-/* หัวข้อ */
-h1 {
-  font-size: 2.5rem;
-  color: #d21e2c;
-  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
-  margin-bottom: 20px;
-}
+    h1 {
+      font-size: 2.5rem;
+      color: #1B262C;
+      margin-bottom: 20px;
+      text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+    }
 
-/* รายการ */
-ul {
-  list-style: none;
-  padding: 0;
-}
+    ul {
+      list-style: none;
+      padding: 0;
+      display: inline-block;
+      margin: 20px 0;
+    }
 
-ul li {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
+    ul li {
+      font-size: 1.2rem;
+      margin: 10px 0;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
-ul li a {
-  color: #1a73e8;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+    ul li {
+      color: #ffffff;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: 2px solid #ffffff;
+      border-radius: 25px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-ul li a:hover {
-  color: #d21e2c;
-  text-decoration: underline;
-}
+    ul li a {
+        text-decoration: none;
+        color: #ffffff;
+    }
 
-/* ส่วนของผู้แต่ง */
-.author {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #444;
-  font-style: italic;
-}
+    ul li:hover {
+      transform: scale(1.1);
+    }
 
-/* เอฟเฟกต์หิมะ */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://example.com/snow.gif');
-  background-size: cover;
-  pointer-events: none;
-  opacity: 0.5;
-}
+    ul li a:hover {
+      color: #ffffff;
+    }
 
-/* ต้นคริสต์มาส */
-.container::after {
-  content: url('https://example.com/christmas-tree.png');
-  position: absolute;
-  bottom: -50px;
-  right: -50px;
-  width: 150px;
-  height: auto;
-  animation: shake 5s infinite;
-}
+    .author {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #ffffff;
+      font-style: italic;
+      animation: pulse 2s infinite;
+    }
 
-@keyframes shake {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(3deg);
-  }
-}
+    .author span {
+      color: #1B262C;
+      font-weight: bold;
+    }
 
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-    </style>
-  </head>
-  <body>
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-    <div class="container">
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px #1B262C, 0 0 20px #1B262C;
+      }
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 15px #1B262C, 0 0 30px #1B262C;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
       <h1>วิชา SC310006 Mobile and Web Application Development</h1>
       <ul>
         <li><a href="./work1">งานที่ 1</a></li>
@@ -118,6 +118,5 @@ body::before {
         โดย <span>นางสาว ฟลอเร็นเช่ แฟร์ราร่า</span> 653380210-1
       </div>
     </div>
-
-  </body>
+</body>
 </html>
