@@ -6,100 +6,102 @@
     <title>วิชา SC310006 Mobile and Web Application Development</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      body {
-        background-color: #f4f4f4;
-        font-family: 'Arial', sans-serif;
-        color: #333;
-      }
+      /* พื้นหลัง */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Prompt', sans-serif;
+  background: linear-gradient(to bottom, #ffefba, #ffffff) no-repeat fixed;
+  background-image: url('https://example.com/christmas-background.jpg');
+  background-size: cover;
+  color: #333;
+}
 
-      .container {
-        background-color: #ffffff;
-        border-radius: 15px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        margin-top: 50px;
-        position: relative;
-      }
+/* คอนเทนเนอร์ */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
 
-      h1 {
-        font-size: 2.5rem;
-        color: #d9534f; 
-        text-align: center;
-        margin-bottom: 30px;
-        font-weight: 700;
-      }
+/* หัวข้อ */
+h1 {
+  font-size: 2.5rem;
+  color: #d21e2c;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
 
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
+/* รายการ */
+ul {
+  list-style: none;
+  padding: 0;
+}
 
-      ul li {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-        background-color: #f8f9fa;
-        padding: 10px;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-      }
+ul li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
 
-      ul li a {
-        text-decoration: none;
-        color: #5a5a5a;
-        font-weight: 500;
-      }
+ul li a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
 
-      ul li:hover {
-        background-color: #28a745;
-        color: white;
-      }
+ul li a:hover {
+  color: #d21e2c;
+  text-decoration: underline;
+}
 
-      .author {
-        text-align: center;
-        margin-top: 30px;
-        font-size: 1.1rem;
-      }
+/* ส่วนของผู้แต่ง */
+.author {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #444;
+  font-style: italic;
+}
 
-      .author span {
-        font-weight: bold;
-        color: #d9534f; 
-      }
+/* เอฟเฟกต์หิมะ */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://example.com/snow.gif');
+  background-size: cover;
+  pointer-events: none;
+  opacity: 0.5;
+}
 
-     
-      .container::before {
-        content: "";
-        position: absolute;
-        top: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 120px;
-        height: 120px;
-        background-image: url('https://www.clipartkey.com/mpngs/m/190-1903322_christmas-tree-clipart-christmas-decorations-png.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
+/* ต้นคริสต์มาส */
+.container::after {
+  content: url('https://example.com/christmas-tree.png');
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 150px;
+  height: auto;
+  animation: shake 5s infinite;
+}
 
-     
-      .container::after {
-        content: "";
-        position: absolute;
-        bottom: -20px;
-        left: 0;
-        width: 100%;
-        height: 10px;
-        background-color: #d9534f; 
-        border-radius: 50%;
-      }
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
 
-      
-      @media (max-width: 767px) {
-        h1 {
-          font-size: 2rem;
-        }
-        .container {
-          padding: 20px;
-          margin-top: 30px;
-        }
       }
     </style>
   </head>
