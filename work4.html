@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Scene with A-Frame</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.2/dist/aframe-extras.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #ececec;
+            overflow: hidden;
+        }
+
+        a-scene {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <a-scene>
+        <!-- Ground Plane -->
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="20" color="#7BC8A4" material="color: #095933"
+            scale="19.11091 31.39845 1"></a-plane>
+
+        <!-- Environment -->
+        <a-sky color="#A2D8FF"></a-sky>
+
+        <!-- Santa -->
+        <a-entity gltf-model="glb/Santa.glb" scale="2.86411 2.5586 3.6292" position="-5.648 0.179 -8.49505"
+            rotation="0 10.832 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Gifts.glb" scale="2.50876 2.08044 2.22996" position="2.32492 0.01866 -1.10763"
+            rotation="0 21.656085782559725 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Gifts.glb" scale="2.509 2.08 2.23" position="1.92111 0.04246 -2.63773"
+            rotation="0 -12.296820199097729 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Christmas Decorations.glb" scale="0.816 1.05516 0.974"
+            position="1.23344 1.78932 -7.06" rotation="0 -112.54 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Decorations.glb" scale="12.00332 33.20986 -17.46866"
+            position="-9.35439 -0.074 -13.59017" rotation="0 7.7664429129983095 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Decorations.glb" scale="15.05087 40.95461 -26.52773"
+            position="-0.30975 -0.07446 -16.00813" rotation="0 -4.068000345428844 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Christmas Presents.glb" scale="1.38299 1.49222 -1.32195"
+            position="-4.46152 0.61638 -0.7328" rotation="0 -4.068 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Santa Claus.glb" scale="1.288 1.13 -1.322" position="13.868 -0.18722 -9.228" rotation="-0.02 175 -0.025" animation-mixer="">
+        </a-entity>
+        
+        <a-entity gltf-model="glb/Santa Claus.glb" scale="1.288 1.13 -1.322" position="11.66196 -0.18722 -9.228" rotation="-0.02 175 -0.025" animation-mixer="">
+        </a-entity>
+        
+        <a-entity gltf-model="glb/Santa Claus.glb" scale="1.288 1.13 -1.322" position="16.21654 -0.18722 -9.228" rotation="-0.02 175 -0.025" animation-mixer="">
+        </a-entity>
+
+
+        <a-entity gltf-model="glb/Squared Christmas Gifts.glb" scale="1.58685 1.97391 -1.73779"
+            position="16.56299 1.11317 -3.81993" rotation="0 -17.166388499914593 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Squared Christmas Gifts.glb" scale="0.96105 1.13827 -0.87229"
+            position="6.36262 0.77131 -14.32187" rotation="0 -17.166388499914593 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Squared Christmas Gifts.glb" scale="1.58685 1.97391 -1.73779"
+            position="-5.28572 0.96367 -19.73992" rotation="0 -17.166388499914593 0">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Blank Billboard.glb" scale="1.099 17.025 -19.914" position="13.988 3.339 -16.259"
+            rotation="0 89.89478622484563 0">
+        </a-entity>
+
+        <a-text value="Florence Ferrara" position="13.79884 6.65763 -16.26399"
+            rotation="3.468 -0.317 -0.11799999999999998" scale="5 4.04182 5" color="#FFFFFF" align="center"
+            text="color: #040404; width: 4.52">
+        </a-text>
+
+        <a-text value="653380210-1 Sec.2 CS" position="13.79884 4.89288 -16.26399"
+            rotation="3.468 -0.317 -0.11799999999999998" scale="5 4.04182 5" color="#FFFFFF" align="center"
+            text="color: #040404; width: 4.52">
+        </a-text>
+
+
+        <!-- pine tree -->
+        <a-entity gltf-model="glb/Pine Tree with Snow.glb" animation-mixer scale="11.52015 10.90929 12.60037"
+            rotation="0 -52.20906020791087 0" position="-15.14885 4.9666 -7.20501">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Pine Tree with Snow.glb" animation-mixer scale="6.00356 6.65683 5.81149"
+            rotation="0 -52.209 0" position="-17.41608 2.56296 -2.53837">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Pine Tree with Snow.glb" animation-mixer scale="6.00356 6.65683 5.81149"
+            rotation="0 -52.209 0" position="20.87116 2.56296 -5.70646">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Pine Tree with Snow.glb" animation-mixer scale="6.00356 6.65683 5.81149"
+            rotation="0 -52.209 0" position="3.72481 2.56296 -32.77132">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Pine Tree with Snow.glb" animation-mixer scale="10.71349 8.49742 12.98305"
+            rotation="0 -52.209 0" position="25.65527 4.00744 -9.79548">
+        </a-entity>
+
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="20" color="#7BC8A4" material="color: #095933"
+            scale="19.11091 31.39845 1"></a-plane>
+
+        <a-entity gltf-model="glb/Pine Tree with Snow.glb" animation-mixer scale="10.71349 8.49742 12.98305"
+            rotation="0 -52.209 0" position="-13.06947 4.00744 -21.40465">
+        </a-entity>
+
+        <a-entity gltf-model="glb/Pine Tree with Snow.glb" animation-mixer scale="11.13266 6.33692 10.21445"
+            rotation="0 -52.209 0" position="25.38628 3.21059 -2.618">
+        </a-entity>
+
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="20" color="#7BC8A4" material="color: #095933"
+            scale="19.11091 31.39845 1"></a-plane>
+
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="20" color="#7BC8A4" material="color: #095933"
+            scale="19.11091 31.39845 1"></a-plane>
+
+    </a-scene>
+</body>
+
+</html>
