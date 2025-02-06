@@ -86,18 +86,25 @@ function LoginBox(props) {
     if (!u) {
         return <div><Button onClick={() => app.google_login()}>Login</Button></div>
     } else {
-        return <div>
-            <img src={u.photoURL} />
-            {u.email}<Button onClick={() => app.google_logout()}>Logout</Button></div>
+        return (
+          <div className="flex flex-col items-center space-y-4">
+            <img
+              src={u.photoURL}
+              alt="User Profile"
+              className="w-32 h-32 rounded-full border-2 border-gray-300"
+            />
+            <p className="mt-2 text-lg font-medium">{u.email}</p>
+            <Button
+              onClick={() => app.google_logout()}
+              className=" mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
+              Logout
+            </Button>
+          </div>
+        );
+
     }
 }
-
-
-
-
-
-
-
 
 
 class App extends React.Component {
@@ -168,14 +175,15 @@ class App extends React.Component {
     if (this.state.stdid) {
       // ตรวจสอบว่าเอกสารมีอยู่หรือไม่
       db.collection("student")
-        .doc(this.state.stdid)
+        .doc(this.state.stdid) // ใช้ stdid ที่กรอกเป็น document ID
         .get()
         .then((docSnapshot) => {
           if (docSnapshot.exists) {
             // อัปเดตข้อมูลถ้ามีเอกสาร
             db.collection("student")
-              .doc(this.state.stdid)
+              .doc(this.state.stdid) // ใช้ stdid ที่กรอกเป็น document ID
               .update({
+                stdid: this.state.stdid || "",
                 title: this.state.stdtitle || "",
                 fname: this.state.stdfname || "",
                 lname: this.state.stdlname || "",
@@ -198,7 +206,8 @@ class App extends React.Component {
           } else {
             // ถ้าไม่พบเอกสารให้เพิ่มข้อมูลใหม่
             db.collection("student")
-              .add({
+              .doc(this.state.stdid) // ใช้ stdid ที่กรอกเป็น document ID
+              .set({
                 title: this.state.stdtitle || "",
                 fname: this.state.stdfname || "",
                 lname: this.state.stdlname || "",
@@ -224,7 +233,8 @@ class App extends React.Component {
     } else {
       // ถ้าไม่มี stdid ให้เพิ่มข้อมูลใหม่
       db.collection("student")
-        .add({
+        .doc(this.state.stdid) // ใช้ stdid ที่กรอกเป็น document ID
+        .set({
           title: this.state.stdtitle || "",
           fname: this.state.stdfname || "",
           lname: this.state.stdlname || "",
@@ -282,62 +292,85 @@ class App extends React.Component {
     // var stext = JSON.stringify(this.state.students);
 
     return (
-      <Card>
-        <Card.Header>{this.title}</Card.Header>
-        <Card.Body>
-          <LoginBox user={this.state.user} app={this}></LoginBox>
-          <Button onClick={() => this.readData()}>Read Data</Button>
-          <Button onClick={() => this.autoRead()}>Auto Read</Button>
-          <div>
+      <Card className="max-w-4xl mx-auto my-8 shadow-lg rounded-lg bg-white">
+        <Card.Header className="bg-blue-600 text-white text-xl font-semibold p-4">
+          {this.title}
+        </Card.Header>
+        <Card.Body className="p-6">
+          <LoginBox user={this.state.user} app={this} />
+          <div className="flex justify-between space-x-4 mt-4">
+            <Button
+              variant="primary"
+              onClick={() => this.readData()}
+              className="w-32 py-2"
+            >
+              Read Data
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => this.autoRead()}
+              className="w-32 py-2"
+            >
+              Auto Read
+            </Button>
+          </div>
+          <div className="mt-6">
             <StudentTable data={this.state.student} app={this} />
           </div>
         </Card.Body>
-        <Card.Footer>
-          <b>เพิ่ม/แก้ไขข้อมูล นักศึกษา :</b>
-          <br />
-          <TextInput
-            label="ID"
-            app={this}
-            value="stdid"
-            style={{ width: 120 }}
-          />
-          <TextInput
-            label="คำนำหน้า"
-            app={this}
-            value="stdtitle"
-            style={{ width: 100 }}
-          />
-          <TextInput
-            label="ชื่อ"
-            app={this}
-            value="stdfname"
-            style={{ width: 120 }}
-          />
-          <TextInput
-            label="สกุล"
-            app={this}
-            value="stdlname"
-            style={{ width: 120 }}
-          />
-          <TextInput
-            label="Email"
-            app={this}
-            value="stdemail"
-            style={{ width: 150 }}
-          />
-          <TextInput
-            label="Phone"
-            app={this}
-            value="stdphone"
-            style={{ width: 120 }}
-          />
-          <Button onClick={() => this.insertOrUpdateData()}>
-            {this.state.stdid ? "Update" : "Save"}
-          </Button>
+        <Card.Footer className="bg-gray-100 p-6">
+          <b className="text-lg text-blue-600">เพิ่ม/แก้ไขข้อมูล นักศึกษา :</b>
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <TextInput
+              label="ID"
+              app={this}
+              value="stdid"
+              style={{ width: "100%" }}
+            />
+            <TextInput
+              label="คำนำหน้า"
+              app={this}
+              value="stdtitle"
+              style={{ width: "100%" }}
+            />
+            <TextInput
+              label="ชื่อ"
+              app={this}
+              value="stdfname"
+              style={{ width: "100%" }}
+            />
+            <TextInput
+              label="สกุล"
+              app={this}
+              value="stdlname"
+              style={{ width: "100%" }}
+            />
+            <TextInput
+              label="Email"
+              app={this}
+              value="stdemail"
+              style={{ width: "100%" }}
+            />
+            <TextInput
+              label="Phone"
+              app={this}
+              value="stdphone"
+              style={{ width: "100%" }}
+            />
+          </div>
+          <div className="mt-4 flex justify-center">
+            <Button
+              onClick={() => this.insertOrUpdateData()}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
+              {this.state.stdid ? "Update" : "Save"}
+            </Button>
+          </div>
         </Card.Footer>
-        <Card.Footer>{this.footer}</Card.Footer>
+        <Card.Footer className="p-4 bg-gray-50">{this.footer}</Card.Footer>
       </Card>
     );
+
   }
 }
 
